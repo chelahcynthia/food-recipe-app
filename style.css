@@ -48,6 +48,7 @@ margin-bottom: 1rem;
 .meal-search-box{
   margin: 1.2rem 0;
   display: flex;
+  float: center;
   align-items: stretch;
 }
 .search-control{
