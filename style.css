@@ -71,3 +71,15 @@ margin-bottom: 1rem;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem ;
 }
+.search-control::placeholder{
+  color: var(--tenne-tawny);
+}
+.search-btn{
+  width: 55px;
+  height: 55px;
+  font-size: 1.8rem;
+  background: var(--tenne-tawny);
+  color: aqua;
+  border: none;
+
+}
