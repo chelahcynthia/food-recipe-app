@@ -39,7 +39,11 @@ margin-bottom: 1rem;
 /* */
 
 .container{
-  min-height: 100vh;
+  width: 100%;
+  height: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+
 }
 .meal-wrapper{
   max-width: 1280px;
@@ -64,10 +68,15 @@ margin-bottom: 1rem;
   float: right;
   margin-top: 8px;
   margin-right: 16px;
+  display: grid;
+  grid-gap: 25px;
   /* float: center; */
 }
 .search.btn{
   width: 90%;
+  display: grid;
+  grid-gap: 25px;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
   /* float: center; */
 }
 .search-control{
@@ -112,7 +121,7 @@ margin-bottom: 1rem;
   margin: 2rem 0;
 }
 .meal-img img{
-  width: 90%;
+  width: 100%;
   display: block;
 }
 .meal-name{
@@ -122,5 +131,33 @@ margin-bottom: 1rem;
   font-size: 1.4rem;
 }
 .recipe-btn{
-  
+  text-decoration:underline;
+  text-align: center;
+  color: darksalmon;
+  background: var(--tenne-tawny-dark);
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 10px 0;
+  display: block;
+  width: 175px;
+  margin-top: 20px;
+  border-radius: 4px;
+  align-self: flex-start;
+  transition: all 0.4s linear;
+ }
+  /* Media Queries */
+
+  @media screen and (min-width: 600px) {
+    .meal-search-box{
+      width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+@media screen and (min-width: 768px){
+  #meal{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
