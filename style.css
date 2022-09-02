@@ -84,19 +84,19 @@ margin-bottom: 1rem;
   font-size: 1.1rem;
   font-family: inherit;
   outline: 0;
-  border: 1px solid var(--tenne-tawny);
+  border: 1px solid #b54507;
   color: var(--tenne-tawny);
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem ;
 }
 .search-control::placeholder{
-  color: var(--tenne-tawny);
+  color:cornflowerblue
 }
 .search-btn{
   width: 55px;
   height: 55px;
   font-size: 1.8rem;
-  background: var(--tenne-tawny);
+  background:darkred;
   color: aqua;
   border: none;
   border-top-right-radius: 2rem;
@@ -121,7 +121,7 @@ margin-bottom: 1rem;
   margin: 2rem 0;
 }
 .meal-img img{
-  width: 90%;
+  width: 70%;
   display: block;
 }
 .meal-name{
@@ -146,7 +146,64 @@ margin-bottom: 1rem;
   transition: all 0.4s linear;
  }
   /* Media Queries */
+  .meal-details{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    background:brown;
+    border-radius: 1rem;
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll;
+    display: ;
+    padding: 2rem 0;
+  }
+  .meal-details::-webkit-scrollbar{
+    width: 10px;
 
+  }
+  .meal-details::-webkit-scrollbar-thumb{
+    background:burlywood;
+    border-radius: 2rem;
+  }
+  /* js related  */
+  .showRecipe{
+    display: block;
+  }
+  .meal-details-content{
+    margin: 2rem;
+  }
+  .recipe-close-btn{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 1.8rem;
+    background: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+
+
+  }
+  .recipe-tittle{
+    letter-spacing: 1px;
+    padding-bottom: 1rem;
+  }
+  .recipe-category{
+    background: cadetblue;
+    font-weight: 500;
+    color:#b54507;
+  }
+
+
+/* media Queries */
   @media screen and (min-width: 600px) {
     .meal-search-box{
       width: 540px;
