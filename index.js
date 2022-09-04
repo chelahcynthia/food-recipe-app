@@ -31,7 +31,10 @@ function getMealList(){
 
               </div>
                 `;
-            })
+            });
+        }else{
+            html = "Sorry,the meal isn't available!";
+            mealList.classList.add('notFound');
         }
         mealList.innerHTML = html;
     });
