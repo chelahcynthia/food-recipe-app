@@ -5,6 +5,7 @@ const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
 // event listeners.....
 searchBtn.addEventListener('click', getMealList);
+mealList.addEventListener('click',getMealRecipe);
 
 
 // get meal list that matches the ingredients
@@ -32,10 +33,28 @@ function getMealList(){
               </div>
                 `;
             });
+            mealList.classList.remove('notFound');
         }else{
             html = "Sorry,the meal isn't available!";
             mealList.classList.add('notFound');
         }
         mealList.innerHTML = html;
     });
+}
+// get recipe of the meal
+function getMealRecipe(event){
+    event.preventDefault();
+    // console.log(event.target);
+    if(event.target.classList.contains(recipe-btn)){
+        let mealItem = event.target.parentElement;
+        // console.log(mealItem);
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+        .then(response => response.json())
+        .then(data =>mealRecipeModal(data.meals)); 
+            
+        
+    }
+}
+function mealRecipeModal(meal){
+    meal = meal[0];
 }
