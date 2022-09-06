@@ -48,7 +48,7 @@ function getMealList() {
 function getMealRecipe(event) {
   event.preventDefault();
   // console.log(event.target);
-  if (event.target.classList.contains(recipe - btn)) {
+  if (event.target.classList.contains(recipe_btn)) {
     let mealItem = event.target.parentElement;
     // console.log(mealItem);
     fetch(
