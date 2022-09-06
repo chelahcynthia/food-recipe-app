@@ -13,9 +13,8 @@
       <div class = "meal-wrapper">
         <div class = "meal-search">
           <h2 class = "title">Find Meal</h2>
-          <h2>
-            <blockquote>Eat healthy, it's good for your health
-              
+            <blockquote>
+              Eat healthy, it's good for your health
             </blockquote>
             <div class = "meal-search-box">
               <input type="text" class="search-control"
@@ -25,7 +24,7 @@
                 <i class= "fas fa-search"></i>
               </button>
             </div>
-           </div>
+          </div>
 
            <div class="meal-result">
             <h2 class = "title">Your Search Results:</h2>
@@ -35,15 +34,15 @@
               <div class = "meal-item">
                 <div class = "meal-img">
                   <img src = "https://static.toiimg.com/photo/msid-87930581/87930581.jpg?211826" alt="food">
-                    </div>
-                    <div class = "meal-name">
-                      <h3>pizza</h3>
-                      <!-- <a href="#" class = "recipe-btn">Get Recipe</a> -->
-                      <button class="recipe-btn">Get Recipe</button>
-                    </div>
+                </div>
+                <div class = "meal-name">
+                  <h3>pizza</h3>
+                  <!-- <a href="#" class = "recipe-btn">Get Recipe</a> -->
+                  <button id="recipe_btn">Get Recipe</button>
+                </div>
                    
 
-              </div> 
+              </div> <br>
               <!-- end of meal item -->
 
               <!-- meal item 2 -->
@@ -54,12 +53,12 @@
                     <div class = "meal-name">
                       <h3>pizza</h3>
                       <!-- <a href="#" class = "recipe-btn">Get Recipe</a> -->
-                      <button class="recipe-btn">Get Recipe</button>
+                      <button id="recipe_btn">Get Recipe</button>
                     </div>
 
 
 
-            </div> 
+            </div>  <br>
             <!-- meal item 3 -->
             <div class = "meal-item">
               <div class = "meal-img">
@@ -67,10 +66,10 @@
                   </div>
                   <div class = "meal-name">
                     <h3>pizza</h3>
-                    <button class="recipe-btn">Get Recipe</button>
+                    <button id="recipe_btn">Get Recipe</button>
                   </div>
 
-           </div>
+           </div> <br>
            <!-- end of meal item 3 -->
            <div class = "meal-details">
             <!-- recipe close btn -->
@@ -101,11 +100,17 @@
       </div>
       <div id="comments">
         <h1>comments</h1>
-        <p style="color:white;font-size: larger;">How do you like our service?</p>
-        <form action=""> 
+        <p style="color:white;font-size: larger;">
+          How do you like our service?
+        </p>
+        <form action="" id="comment_form"> 
           <input type="text" name="comment" id="userComment" placeholder="add comment">
           <input type="submit" value="submit" id="submit_btn">
         </form>
+        <ul>
+          <li>I enjoyed your service</li>
+          <li>The recipe is not complicated</li>
+        </ul>
       </div>
     </div>
     
