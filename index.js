@@ -30,7 +30,7 @@ function getMealList() {
                     </div>
                     <div class = "meal-name">
                       <h3>${meal.strMeal}</h3>
-                      <a href="#" class = "recipe-btn">Get Recipe</a>
+                      <a href="#" id = "recipe-btn">Get Recipe</a>
                     </div>
                    
               </div>
@@ -48,7 +48,7 @@ function getMealList() {
 function getMealRecipe(event) {
   event.preventDefault();
   // console.log(event.target);
-  if (event.target.classList.contains(recipe_btn)) {
+  if (event.target.classList.contains("recipe_btn")) {
     let mealItem = event.target.parentElement;
     // console.log(mealItem);
     fetch(
@@ -56,30 +56,31 @@ function getMealRecipe(event) {
     )
       .then((response) => response.json())
       .then((data) => mealRecipeModal(data.meals));
+      
   }
-}
-function mealRecipeModal(meal) {
-  meal = meal[0];
-  let html = `
-  <h2 class = "recipe-title">${meal.str}</h2>
-  <p class = "recipe-title"> ${meal.strCategoty}</p>
-  <div class = "recipe-instruct">
-    <h3>Instructions:</h3>
+ }
+// function mealRecipeModal(meal) {
+//   meal = meal[0];
+//   let html = `
+//   <h2 class = "recipe-title">${meal.str}</h2>
+//   <p class = "recipe-title"> ${meal.strCategoty}</p>
+//   <div class = "recipe-instruct">
+//     <h3>Instructions:</h3>
     
-    <p>${meal.strInstructions}</p>
+//     <p>${meal.strInstructions}</p>
 
-  </div>
-  <div class="recipe-meal-img">
-    <img src="${meal.strMealThumb}" alt = "">
+//   </div>
+//   <div class="recipe-meal-img">
+//     <img src="${meal.strMealThumb}" alt = "">
 
-  </div>
-  <div class="recipe-link">
-    <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
-  </div>
-  `;
-  mealDetailsContent.innerHTML = html
-  mealDetailsContent.parentElement.classList.add('showRecipe');
-}
+//   </div>
+//   <div class="recipe-link">
+//     <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
+//   </div>
+//   `;
+//   mealDetailsContent.innerHTML = html
+//   mealDetailsContent.parentElement.classList.add('showRecipe');
+// }
  
 const commentForm = document.getElementById('comment_form')
 
