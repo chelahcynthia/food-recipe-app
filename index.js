@@ -80,3 +80,19 @@ function mealRecipeModal(meal) {
   mealDetailsContent.innerHTML = html
   mealDetailsContent.parentElement.classList.add('showRecipe');
 }
+ 
+const commentForm = document.getElementById('comment_form')
+
+commentForm.addEventListener('submit', e => {
+  e.preventDefault()
+  appendComment(e.target.userComment.value)
+  commentForm.reset()
+})
+function appendComment(comment) {
+  let ul = document.querySelector('ul')
+  let li = document.createElement('li')
+  li.innerText = comment
+  if(comment !== '') {
+    ul.appendChild(li)
+  }
+}
