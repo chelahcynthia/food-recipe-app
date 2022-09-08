@@ -93,6 +93,7 @@ body{
   margin: 2rem 0;
   border: 2px solid black;
 }
+
 .meal-img img{
   width: 100%;
   display: block;
@@ -279,4 +280,14 @@ body{
   .meal-details{
       width: 700px;
   }
+}
+#comments{
+  color:black;
+  text-decoration:wavy;
+}
+
+#submit_btn{
+  background: black;
+  color: white;
+
 }

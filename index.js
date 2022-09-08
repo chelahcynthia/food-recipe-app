@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
       mealDetailsContent.innerHTML = html;
       mealDetailsContent.parentElement.classList.add('showRecipe')
   }
+  const commentForm = document.getElementById('comment_form')
+
+
   commentForm.addEventListener('submit', e => {
       e.preventDefault()
       appendComment(e.target.userComment.value)
