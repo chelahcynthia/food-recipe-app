@@ -1,123 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Meal</title>
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class= "container">
-      <div class = "meal-wrapper">
-        <div class = "meal-search">
-          <h2 class = "title">Find Meal</h2>
-            <blockquote>
-              Eat healthy, it's good for your health
-            </blockquote>
-            <div class = "meal-search-box">
-              <input type="text" class="search-control"
-              placeholder="Enter an ingredient" id = "search-input">
-              <button type = "submit" class="search-btn btn" id 
-              = "search-btn">
-                <i class= "fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-
-           <div class="meal-result">
-            <h2 class = "title">Your Search Results:</h2>
-            <div id="meal">
-
-              <!-- meal item-->
-              <div class = "meal-item">
-                <div class = "meal-img">
-                  <img src = "https://healthyfitnessmeals.com/wp-content/uploads/2021/04/Southwest-chicken-salad-7.jpg" alt="food">
-                </div>
-                <div class = "meal-name">
-                  <h3>Chicken</h3>
-                  <!-- <a href="#" class = "recipe-btn">Get Recipe</a> -->
-                  <button id="recipe_btn">Get Recipe</button>
-                </div>
-                   
-
-              </div> 
-              <!-- end of meal item -->
-
-              <!-- meal item 2 -->
-               <div class = "meal-item">
-                <div class = "meal-img">
-                  <img src ="https://healthyfitnessmeals.com/wp-content/uploads/2021/04/Southwest-chicken-salad-7.jpg" alt="food">
-                    </div>
-                    <div class = "meal-name">
-                      <h3>Chicken</h3>
-                      <!-- <a href="#" class = "recipe-btn">Get Recipe</a> -->
-                      <button id="recipe_btn">Get Recipe</button>
-                    </div>
-
-
-
-            </div>  
-            <!-- meal item 3 -->
-            <div class = "meal-item">
-              <div class = "meal-img">
-                <img src = "https://healthyfitnessmeals.com/wp-content/uploads/2021/04/Southwest-chicken-salad-7.jpg" alt="food">
-                  </div>
-                  <div class = "meal-name">
-                    <h3>Chicken</h3>
-                    <button id="recipe_btn">Get Recipe</button>
-                  </div>
-
-           </div> 
-           <!-- end of meal item 3 -->
-           <div class = "meal-details">
-            <!-- recipe close btn -->
-            <button type = "button" class="btn recipe-close-btn"
-            id = "recipe-close-btn">
-            <i class="fas fa-times"></i>
-
-            </button>
-            <!-- meal content -->
-            <div class = "meal-details-content">
-              <h2 class = "recipe-title">Meals Name Here</h2>
-              <p class = "recipe-title"> Category Name</p>
-              <div class = "recipe-instruct">
-                <h3>Instructions:</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, dolore quis odio accusamus vitae quod ipsa unde sapiente iusto! Numquam amet ipsam optio possimus, distinctio aliquid laborum? Possimus, beatae sequi.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed officia ad distinctio ipsam sapiente ut, magni quisquam commodi nemo numquam earum dolorem minima quaerat atque quasi fugit adipisci cumque expedita!</p>
-
-              </div>
-              <div class="recipe-meal-img">
-                <img src="https://static.toiimg.com/photo/msid-87930581/87930581.jpg?211826">
-
-              </div>
-              <div class="recipe-link">
-                <a href="#" target="_blank">Watch Video</a>
-              </div>
-            </div>
-           </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Meal For Your Ingredients</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+  
+  <div class = "container">
+    <div class = "meal-wrapper">
+      <div class = "meal-search">
+        <h2 class = "title">Find Meals For Your Ingredients</h2>
+        <q>A well cooked meal leads to a healthy life!</q>
+        <div class = "meal-search-box">
+          <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
+          <button type = "submit" class = "search-btn btn" id = "search-btn">
+            <i class = "fas fa-search"></i>
+          </button>
+        </div>
       </div>
-      <div id="comments">
-        <h1>comments</h1>
-        <p style="color:white;font-size: larger;">
-          How do you like our service?
-        </p>
-        <form action="" id="comment_form"> 
-          <input type="text" name="comment" id="userComment" placeholder="add comment">
-          <input type="submit" value="submit" id="submit_btn">
-        </form>
-        <ul>
-          <li>I enjoyed your service</li>
-          <li>The recipe is not complicated</li>
-        </ul>
+      <div class = "meal-result">
+        <h2 class = "title">Your Search Results:</h2>
+        <div id= "meal">
+        </div>
+      </div>
+      <div class = "meal-details">
+        <!-- recipe close btn -->
+        <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn">
+          <i class = "fas fa-times"></i>
+        </button>
+        <!-- meal content -->
+        <div class = "meal-details-content">
+        </div>
       </div>
     </div>
-    
+  </div>
+  <div id="comments">
+    <h1>comments</h1>
+    <p style="color:white;font-size: larger;">
+      How do you like our service?
+    </p>
+    <form action="" id="comment_form"> 
+      <input type="text" name="comment" id="userComment" placeholder="add comment">
+      <input type="submit" value="submit" id="submit_btn">
+    </form>
+    <ul>
+      <li>I enjoyed your service</li>
+      <li>The recipe is not complicated</li>
+    </ul>
+</div>
 
-
-
-
-    <script src = "index.js"></script>
-  </body>
-</html>
+  <script src = "index.js"></script>
+</body>
+</html

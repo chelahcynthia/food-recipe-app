@@ -1,99 +1,91 @@
-const searchBtn = document.getElementById("search-btn");
-const mealList = document.getElementById("meal");
-const mealDetailsContent = document.querySelector("meal-details-content");
-const recipeCloseBtn = document.getElementById("recipe-close-btn");
+document.addEventListener('DOMContentLoaded', () => {
 
-// event listeners.....
-searchBtn.addEventListener("click", getMealList);
-mealList.addEventListener("click", getMealRecipe);
-recipeCloseBtn.addEventListener("click", () => {
-    mealDetailsContent.parentElement.classList.remove('showRecipe');
-});
-
-// get meal list that matches the ingredients
-function getMealList() {
-  let searchInputTxt = document.getElementById("search-input").value.trim();
-  // console.log(searchInputTxt.length);
-  fetch(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data);
-      let html = "";
-      if (data.meals) {
-        data.meals.forEach((meal) => {
-          html += `
-                <div class = "meal-item" id = "${meal.idMeal}>
-                <div class = "meal-img">
-                  <img src = "${meal.strMealThumb}" alt="food">
-                    </div>
-                    <div class = "meal-name">
-                      <h3>${meal.strMeal}</h3>
-                      <a href="#" id = "recipe-btn">Get Recipe</a>
-                    </div>
-                   
-              </div>
-                `;
-        });
-        mealList.classList.remove("notFound");
-      } else {
-        html = "Sorry,the meal isn't available!";
-        mealList.classList.add("notFound");
+  const searchBtn = document.getElementById('search-btn')
+  const mealList = document.getElementById('meal')
+  const mealDetailsContent = document.querySelector('.meal-details-content')
+  const recipeCloseBtn = document.getElementById('recipe-close-btn')
+  
+  // event listeners
+  searchBtn.addEventListener('click', getMealList)
+  mealList.addEventListener('click', getMealRecipe)
+  
+  recipeCloseBtn.addEventListener('click', () => {
+     mealDetailsContent.parentElement.classList.remove('showRecipe')
+  })
+  
+  
+  // get meal list
+  function getMealList(){
+      let searchInputTxt = document.getElementById('search-input').value.trim();
+      fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`)
+      .then(response => response.json())
+      .then(data => {
+          let html = ""
+          if(data.meals){
+              data.meals.forEach(meal => {
+                  console.log(meal)
+                  html += `
+                      <div class = "meal-item" data-id = "${meal.idMeal}">
+                          <div class = "meal-img">
+                              <img src = "${meal.strMealThumb}" alt = "food">
+                          </div>
+                          <div class = "meal-name">
+                              <h3>${meal.strMeal}</h3>
+                              <a href = "#" class = "recipe-btn">Get Recipe</a>
+                          </div>
+                      </div>
+                  `;
+              });
+              mealList.classList.remove('notFound');
+          } else{
+              html = "Sorry, the meal is not available!"
+              mealList.classList.add('notFound');
+          }
+  
+          mealList.innerHTML = html
+      })
+  }
+  
+  // get recipe of the meal
+  function getMealRecipe(e){
+      e.preventDefault()
+      if(e.target.classList.contains('recipe-btn')){
+          let mealItem = e.target.parentElement.parentElement;
+          fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+          .then(response => response.json())
+          .then(data => mealRecipeModal(data.meals));
       }
-      mealList.innerHTML = html;
-    });
-}
-// get recipe of the meal
-function getMealRecipe(event) {
-  event.preventDefault();
-  // console.log(event.target);
-  if (event.target.classList.contains("recipe_btn")) {
-    let mealItem = event.target.parentElement;
-    // console.log(mealItem);
-    fetch(
-      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`
-    )
-      .then((response) => response.json())
-      .then((data) => mealRecipeModal(data.meals));
-      
   }
- }
-// function mealRecipeModal(meal) {
-//   meal = meal[0];
-//   let html = `
-//   <h2 class = "recipe-title">${meal.str}</h2>
-//   <p class = "recipe-title"> ${meal.strCategoty}</p>
-//   <div class = "recipe-instruct">
-//     <h3>Instructions:</h3>
-    
-//     <p>${meal.strInstructions}</p>
-
-//   </div>
-//   <div class="recipe-meal-img">
-//     <img src="${meal.strMealThumb}" alt = "">
-
-//   </div>
-//   <div class="recipe-link">
-//     <a href="${meal.strYoutube}" target="_blank">Watch Video</a>
-//   </div>
-//   `;
-//   mealDetailsContent.innerHTML = html
-//   mealDetailsContent.parentElement.classList.add('showRecipe');
-// }
- 
-const commentForm = document.getElementById('comment_form')
-
-commentForm.addEventListener('submit', e => {
-  e.preventDefault()
-  appendComment(e.target.userComment.value)
-  commentForm.reset()
+  
+  // create a modal
+  function mealRecipeModal(meal){
+      console.log(meal)
+      meal = meal[0]
+      let html = `
+          <h2 class = "recipe-title">${meal.strMeal}</h2>
+          <p class = "recipe-category">${meal.strCategory}</p>
+          <div class = "recipe-instruct">
+              <h3>Instructions:</h3>
+              <p>${meal.strInstructions}</p>
+          </div>
+          <div class = "recipe-meal-img">
+              <img src = "${meal.strMealThumb}" alt = "">
+          </div>
+      `;
+      mealDetailsContent.innerHTML = html;
+      mealDetailsContent.parentElement.classList.add('showRecipe')
+  }
+  commentForm.addEventListener('submit', e => {
+      e.preventDefault()
+      appendComment(e.target.userComment.value)
+      commentForm.reset()
+    })
+    function appendComment(comment) {
+      let ul = document.querySelector('ul')
+      let li = document.createElement('li')
+      li.innerText = comment
+      if(comment !== '') {
+        ul.appendChild(li)
+      }
+    }
 })
-function appendComment(comment) {
-  let ul = document.querySelector('ul')
-  let li = document.createElement('li')
-  li.innerText = comment
-  if(comment !== '') {
-    ul.appendChild(li)
-  }
-}
